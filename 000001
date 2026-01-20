@@ -1,0 +1,78 @@
+'''
+a = []
+for x in range(700011, 10**10, 13):
+    s = str(x)
+    if s[0] == "0" and s[3] == "3": continue
+    if s[1] == "0" and s[4]=="3": continue
+    if s[2] == "0" and s[5]=="3": continue
+    if s[-4] == "4" and s[-1]=="2": continue
+    if "1" in s: continue
+    a.append(x)
+    if len(a) == 5: break
+print(a)
+
+
+
+'''
+'''
+a = []
+for x in range(92, 10**8, 92):
+    s = str(x)
+    if s[:2] == "12" and s[3] == "4": 
+        if s[-3] == "6" and s[-1]=="8": 
+            if int(s[2])%2==0 and s[4] in "13579":
+                a.append(x)
+print(a)
+
+
+
+a = []
+for c1 in "02468":
+    for c2 in "13579":
+        for c3 in "0123456789":
+            x = int("12" + c1 + "4"+c2+"6"+c3+"8")
+            if x%92==0 and x < 10**13:
+                a.append(x)
+print(a)
+
+'''
+
+
+
+
+
+
+a = []
+for x in range(519, 10**13, 519):
+    s = str(x)
+    if len(s)%2==0 and "0" not in s: 
+        p = len(s)//2
+        if sum(map(int, s[:p])) == sum(map(int, s[p:])):
+            if s[:2]=="32" and s[-3:] == "123": 
+                if s[-6:-4]=="54":
+                    print(x)
+                    a.append(x)
+print(a)
+
+a = []
+for c1 in " ","1","2","3","4","6","7","8","9","0":
+    for c2 in " ","1","2","3","4","6","7","8","9","0":
+        for c3 in " ","1","2","3","4","6","7","8","9","0":
+            for c4 in " ","1","2","3","4","6","7","8","9","0":
+                for c5 in " ","1","2","3","4","6","7","8","9","0":
+                    for c6 in "1234567890":
+                        s = "12"+c1+c2+c3+c4+c5+"54"+c6+'123'
+                        x = int(s)
+                        if len(s)%2
+
+
+
+
+
+
+
+
+
+
+
+
