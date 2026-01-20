@@ -1,0 +1,16 @@
+def f(n):
+    if n == 0:
+        return '0'
+    v = ""
+    while n > 0:
+        x = n % 7
+        v = str(x) + v
+        n //= 7
+    return v
+
+a=[]
+for x in range(333,10**9+1,333):
+    s=str(f(x))
+    if s[1:4]=="213" and s[-4:]=="5664":
+            a.append(x)
+print(sorted(a))
