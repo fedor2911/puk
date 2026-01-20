@@ -1,0 +1,82 @@
+```python
+# ========== ЗАДАЧА 1 ==========
+def task1():
+    results = []
+    for length in range(6, 9):
+        k = length - 6
+        for q in range(10):
+            if k == 0:
+                num = int(f"124{q}65")
+                if num % 161 == 0:
+                    results.append(num)
+            else:
+                for star_val in range(10**k):
+                    star_str = str(star_val).zfill(k)
+                    num = int(f"12{star_str}4{q}65")
+                    if num % 161 == 0:
+                        results.append(num)
+    return sorted(results)
+
+# ========== ЗАДАЧА 2 ==========
+def task2():
+    results = []
+    base = "12345"
+    suffix = "76"
+    num = 0
+    
+    while len(results) < 5:
+        for middle_len in range(0, 10):
+            for middle in range(10**middle_len):
+                middle_str = str(middle).zfill(middle_len)
+                num_str = base + middle_str + suffix
+                num = int(num_str)
+                if num % 73 == 0:
+                    results.append(num)
+                    if len(results) >= 5:
+                        break
+            if len(results) >= 5:
+                break
+    return sorted(results)[:5]
+
+# ========== ЗАДАЧА 3 ==========
+def task3():
+    results = []
+    prefix = "2213"
+    suffix = "5664"
+    
+    for mid_len in range(0, 10):
+        for mid in range(10**mid_len):
+            mid_str = str(mid).zfill(mid_len)
+            num_str = prefix + mid_str + suffix
+            num = int(num_str)
+            if num > 10**9:
+                continue
+            if num % 333 == 0:
+                results.append(num)
+    return sorted(results)
+
+# ========== ЗАДАЧА 4 ==========
+def task4():
+    results = []
+    prefix = "123"
+    suffix = "56"
+    even_digits = ['0', '2', '4', '6', '8']
+    
+    for mid_len in range(0, 6):
+        for mid in range(10**mid_len):
+            for d1 in even_digits:
+                for d2 in even_digits:
+                    mid_str = str(mid).zfill(mid_len)
+                    num_str = prefix + mid_str + d1 + d2 + suffix
+                    num = int(num_str)
+                    if num > 10**8:
+                        continue
+                    if num % 206 == 0:
+                        results.append(num)
+    return sorted(results)
+
+print("Задача 1:", task1())
+print("Задача 2:", task2())
+print("Задача 3:", task3())
+print("Задача 4:", task4())
+```
