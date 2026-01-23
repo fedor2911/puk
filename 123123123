@@ -1,0 +1,58 @@
+from graph import *
+from random import *
+from math import *
+n=10
+brushColor(255,0,0)
+x=[0]*n
+y=[0]*n
+for i in range(n):
+    x[i]=randint(10,490)
+    y[i]=randint(10,590)
+    r=randint(1,4)
+    circle(x[i],y[i],1)
+minR=1000000000
+for i in range(n):
+    r=dist((0,0),(x[i],y[i]))
+    if r<minR:
+        minR=r
+        mi=i
+line(0,0,x[mi],y[mi])
+
+maxR=0
+for i in range(n):
+    r=dist((0,0),(x[i],y[i]))
+    if r>maxR:
+        maxR=r
+        mi=i
+line(0,0,x[mi],y[mi])
+
+
+penColor(0,255,0)
+penSize(2)
+minR=100000000
+for i in range(n-1):
+    for j in range(i+1,n):
+        r=dist((x[i],y[i]),(x[j],y[j]))
+        if r<minR:
+            minR=r
+            mi=i
+            mj=j
+line(x[mi],y[mi],x[mj],y[j])
+
+penColor(255,0,0)
+penSize(2)
+maxR=0
+for i in range(n-1):
+    for j in range(i+1,n):
+        r=dist((x[i],y[i]),(x[j],y[j]))
+        if r>maxR:
+            maxR=r
+            mi=i
+            mj=j
+line(x[mi],y[mi],x[mj],y[j])
+
+
+
+
+
+
