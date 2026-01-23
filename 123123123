@@ -1,7 +1,7 @@
 from graph import *
 from random import *
 from math import *
-n=10
+n=8
 brushColor(255,0,0)
 x=[0]*n
 y=[0]*n
@@ -37,7 +37,7 @@ for i in range(n-1):
             minR=r
             mi=i
             mj=j
-line(x[mi],y[mi],x[mj],y[j])
+line(x[mi],y[mi],x[mj],y[mj])
 
 penColor(255,0,0)
 penSize(2)
@@ -51,8 +51,45 @@ for i in range(n-1):
             mj=j
 line(x[mi],y[mi],x[mj],y[j])
 
+######5
 
+penColor(255,0,0)
+minS=100000000
+for i in range(n-2):
+    for j in range(i+1,n-1):
+        for t in range(j+1,n):
+            a=dist((x[i],y[i]),(x[j],y[j]))
+            b=dist((x[i],y[i]),(x[t],y[t]))
+            c=dist((x[t],y[t]),(x[j],y[j]))
+            p=(a+b+c)/2
+            S=(p*(p-a)*(p-b)*(p-c))**0.5
+            if S<minS:
+                minS=S
+                mi=i
+                mj=j
+                mt=t
+line(x[mi],y[mi],x[mj],y[mj])
+line(x[mi],y[mi],x[mt],y[mt])
+line(x[mt],y[mt],x[mj],y[mj])
 
+######6
 
-
-
+penColor(0,255,0)
+penSize(2)
+maxS=0
+for i in range(n-2):
+    for j in range(i+1,n-1):
+        for t in range(j+1,n):
+            a=dist((x[i],y[i]),(x[j],y[j]))
+            b=dist((x[i],y[i]),(x[t],y[t]))
+            c=dist((x[t],y[t]),(x[j],y[j]))
+            p=(a+b+c)/2
+            S=(p*(p-a)*(p-b)*(p-c))**0.5
+            if S>maxS:
+                maxS=S
+                mi=i
+                mj=j
+                mt=t
+line(x[mi],y[mi],x[mj],y[mj])
+line(x[mi],y[mi],x[mt],y[mt])
+line(x[mt],y[mt],x[mj],y[mj])
